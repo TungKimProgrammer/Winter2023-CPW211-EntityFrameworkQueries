@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnSelectAllVendors = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAllCAVendors = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -43,14 +43,15 @@
             this.btnSelectAllVendors.UseVisualStyleBackColor = true;
             this.btnSelectAllVendors.Click += new System.EventHandler(this.btnSelectAllVendors_Click);
             // 
-            // button2
+            // btnAllCAVendors
             // 
-            this.button2.Location = new System.Drawing.Point(67, 108);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAllCAVendors.Location = new System.Drawing.Point(67, 108);
+            this.btnAllCAVendors.Name = "btnAllCAVendors";
+            this.btnAllCAVendors.Size = new System.Drawing.Size(453, 23);
+            this.btnAllCAVendors.TabIndex = 1;
+            this.btnAllCAVendors.Text = "Select * FROM Vendor WHERE VendorState = \'CA\' ORDER BY VendorName";
+            this.btnAllCAVendors.UseVisualStyleBackColor = true;
+            this.btnAllCAVendors.Click += new System.EventHandler(this.btnAllCAVendors_Click);
             // 
             // button3
             // 
@@ -67,7 +68,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnAllCAVendors);
             this.Controls.Add(this.btnSelectAllVendors);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -78,7 +79,7 @@
         #endregion
 
         private Button btnSelectAllVendors;
-        private Button button2;
+        private Button btnAllCAVendors;
         private Button button3;
     }
 }
