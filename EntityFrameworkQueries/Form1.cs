@@ -101,6 +101,37 @@ namespace EntityFrameworkQueries
                 // do something with the Vendor object
             }
         }
+
+        private void btnVendorsAndInvoices_Click(object sender, EventArgs e)
+        {
+            APContext dbContext = new APContext();
+
+            List<Vendor> allVendors = dbContext.Vendors.Include(v => v.Invoices).ToList();
+
+            /* unfinished code: This pulls a Vendor object for each individual invoice, 
+             * vendors are also pull back if they have no invoices
+             * List<Vendor> allVendors = (from v in dbContext.Vendors
+                                       join inv in dbContext.Invoices
+                                            on v.VendorId equals inv.VendorId into grouping
+                                       from inv in grouping.DefaultIfEmpty()
+                                       select v).ToList();*/
+
+            StringBuilder results = new StringBuilder();
+
+            foreach(Vendor v in allVendors)
+            {
+                results.Append(v.VendorName);
+
+                foreach(Invoice inv in v.Invoices)
+                {
+                    results.Append(", " + inv.InvoiceNumber);
+                }
+
+                results.AppendLine();
+            }
+
+            MessageBox.Show(results.ToString());
+        }
     }
 
     class VendorLocation
