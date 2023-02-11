@@ -93,8 +93,8 @@ namespace EntityFrameworkQueries
 
             // Query a single Vendor
             Vendor ? singleVendor = (from v in dbContext.Vendors
-                                  where v.VendorName == "IBM"
-                                  select v).SingleOrDefault();
+                                      where v.VendorName == "IBM"
+                                      select v).SingleOrDefault();
 
             if (singleVendor != null )
             {
